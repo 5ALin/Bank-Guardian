@@ -13,7 +13,7 @@ TOKEN = os.getenv("DISCORD_BOT_TOKEN")
 BOT_OWNER_ID = int(os.getenv("BOT_OWNER_ID"))
 
 GUILD_BANK_FILE = "guild_bank.json"
-GUILD_ID = 627983043658776610  # Replace with your Discord server's ID
+GUILD_ID =   # Replace with your Discord server's ID
 
 intents = discord.Intents.default()
 intents.messages = True  # Ensure the bot can read messages
@@ -39,7 +39,7 @@ bank = load_guild_bank()
 
 bot = commands.Bot(command_prefix="!", intents=intents)
 tree = bot.tree
-admin_role = "Goddess"  # Change to your actual admin role
+admin_role = ""  # Change to your actual admin role
 
 @bot.event
 async def on_ready():
@@ -123,7 +123,7 @@ async def approve_withdraw(interaction: discord.Interaction, amount: int):
     timestamp = get_timestamp()
     user = interaction.user
 
-    admin_role = discord.utils.get(interaction.guild.roles, name="Goddess")
+    admin_role = discord.utils.get(interaction.guild.roles, name="")
     if admin_role not in user.roles and user.id != interaction.guild.owner_id and user.id != BOT_OWNER_ID:
         await interaction.response.send_message("❌ Only admins, the server owner, or the bot owner can approve withdrawals.", ephemeral=True)
         return
@@ -290,7 +290,7 @@ async def approve_withdraw_item(interaction: discord.Interaction, item_name: str
     timestamp = get_timestamp()
     user = interaction.user
 
-    admin_role = discord.utils.get(interaction.guild.roles, name="Goddess")
+    admin_role = discord.utils.get(interaction.guild.roles, name="")
     if admin_role not in user.roles and user.id != interaction.guild.owner_id and user.id != BOT_OWNER_ID:
         await interaction.response.send_message("❌ Only admins, the server owner, or the bot owner can approve withdrawals.", ephemeral=True)
         return
